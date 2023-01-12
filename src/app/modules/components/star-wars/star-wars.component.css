@@ -1,0 +1,24 @@
+.portada-peli {
+    width: 220px;
+}
+
+.cuerpo {
+    background-color: black;
+}
+
+.tit-peli {
+    color: #FFF;
+    font-size: 20px;
+}
+
+.portada-peli {
+    height: 330px;
+}
+
+.card {
+    width: 220px;
+}
+
+.card:hover {
+    transform: scale(1.2); 
+  }

@@ -1,0 +1,36 @@
+<div class="cuerpo row d-flex justify-content-center">    
+    <div class="col-3">
+        <img src={{logoCharacter}} alt="" class="portada-peli">
+    </div>
+    <div class="col-4 pb-3 px-3">
+        <h1 class="fw-bold" style="color:#FFF;">{{character.name}}</h1>        
+
+        <h3 style="color:#AFB1B1;"> <span class="fw-bold">Heigth:</span> {{character.height}} cm</h3>
+        <h3 style="color:#AFB1B1;"> <span class="fw-bold">Mass:</span> {{character.mass}} kg</h3>
+        <h3 style="color:#AFB1B1;"> <span class="fw-bold">Hair Color:</span> {{character.hair_color}}</h3>
+        <h3 style="color:#AFB1B1;"> <span class="fw-bold">Gender:</span> {{character.gender}}</h3>
+        <h3 style="color:#AFB1B1;"> <span class="fw-bold">Home World:</span> {{homeworld}}</h3>
+        <h3 style="color:#AFB1B1;"> <span class="fw-bold">Specie:</span> {{specie}}</h3>
+        <br>        
+    </div>  
+
+    <div class="col-7">
+        <br>
+        <h2 class="fw-bold text-uppercase" style="color: #FFF;">
+            movies in which this character appears
+        </h2>  
+        <br>
+        <div class="d-flex flex-wrap justify-content-center w-100 p-3"> 
+            <div class="card m-4" *ngFor="let pelicula of lstFilmsCharacters" style="background-color: black;">        
+                <img src={{obtenerLinkPortada(pelicula.episode_id)}} alt="" class="portada-peli">
+                <p class="tit-peli text-center mt-2 w-100">
+                    {{pelicula.title}}
+                </p>        
+                <button class="btn btn-primary" (click)="goToMovie(pelicula.episode_id)">
+                    <i class="pi pi-search"></i>
+                    Read more
+                </button>
+            </div>
+        </div>
+    </div>
+</div>  

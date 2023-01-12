@@ -1,0 +1,51 @@
+<div class="cuerpo row d-flex justify-content-center">    
+    <div class="col-3">
+        <img src={{obtenerLinkPortada(pelicula.episode_id)}} alt="" class="portada-peli">
+    </div>
+    <div class="col-7 pb-5 px-5">
+        <h1 class="fw-bold" style="color:#FFF;">Star Wars: {{pelicula.title}}</h1>        
+
+        <h6 style="color:#AFB1B1;"> <span class="fw-bold">Director:</span> {{pelicula.director}}</h6>
+        <h6 style="color:#AFB1B1;"> <span class="fw-bold">Productor:</span> {{pelicula.producer}}</h6>
+        <h6 style="color:#AFB1B1;"> <span class="fw-bold">Release Date:</span> {{pelicula.release_date}}</h6>
+
+        <br>
+        <h5 style="color:#AFB1B1;">{{pelicula.opening_crawl}}</h5>
+    </div>  
+    
+    <div class="col-10">
+        <br>
+        <h2 class="fw-bold" style="color: #FFF;">
+            CHARACTERS
+        </h2>  
+        <br>
+        <p-table #tbCharacters [columns]="cols" [value]="lstCharacters"
+        responsiveLayout="scroll" dataKey="id" styleClass="p-datatable-customers" 
+        [rowHover]="true" [rows]="10" [loading]="loading"        
+        [globalFilterFields]="colsFilter" [scrollable]="true" scrollHeight="460px" scrollDirection="both">        
+
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th style="width:20%; background-color: #FFE81F; color: #000;" *ngFor="let col of columns" 
+                    class="text-uppercase fw-bold">
+                        {{col.header}}
+                    </th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr style="font-size: 14px; border-bottom: 1.3px solid #d2d2d2;
+                background-color: black; color: #AFB1B1;">                                    
+                    <td style="width: 20%;" *ngFor="let col of columns">
+                        <span *ngIf="col.type == 'label' "> {{rowData[col.field]}}</span>
+                        <div *ngIf="col.type == 'button' ">                                                               
+                            <button class="btn btn-primary" type="button" (click)="goToCharacter(rowData)">More information</button>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+
+        </p-table>
+        <br><br>
+    </div>  
+</div>
